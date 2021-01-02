@@ -9,7 +9,7 @@
 --
 -- Author:      Tanel Poder
 --
--- Copyright:   (c) http://blog.tanelpoder.com - All rights reserved.
+-- Copyright:   (c) https://tanelpoder.com - All rights reserved.
 --
 -- Disclaimer:  This script is provided "as is", no warranties nor guarantees are
 --              made. Use at your own risk :)
@@ -43,7 +43,7 @@ COL asqlmon_parent_id HEAD "PID"  FOR 9999
 BREAK ON asqlmon_sql_id SKIP 1 ON asqlmon_sql_child SKIP 1 ON asqlmon_plan_hash_value SKIP 1 ON asqlmon_sample_time SKIP 1 DUP ON asqlmon_operation
 
 PROMPT
-PROMPT -- ASQLMon v1.1 - by Tanel Poder ( http://blog.tanelpoder.com ) - Display SQL execution plan line level activity breakdown from ASH
+PROMPT -- ASQLMon v1.1 - by Tanel Poder ( https://tanelpoder.com ) - Display SQL execution plan line level activity breakdown from ASH
 
 WITH  sample_times AS (
     select * from dual
@@ -90,7 +90,7 @@ SELECT
 --  , sq.avg_p3 
   , plan.object_alias || CASE WHEN plan.qblock_name IS NOT NULL THEN ' ['|| plan.qblock_name || ']' END obj_alias_qbc_name
   , CASE WHEN plan.access_predicates IS NOT NULL THEN '[A:] '|| plan.access_predicates END || CASE WHEN plan.filter_predicates IS NOT NULL THEN ' [F:]' || plan.filter_predicates END asqlmon_predicates
---  , plan.projection
+  , plan.projection
 FROM
     dba_hist_sql_plan plan
   , sq
